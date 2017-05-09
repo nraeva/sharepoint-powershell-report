@@ -8,6 +8,11 @@
     Position = 0)]
     [string]$Path
   )
+
+  if (!(Test-Path -PathType Container -Path $Path))
+  {
+    mkdir -Path $Path
+  } 
 	
   Add-PSSnapin -Name Microsoft.SharePoint.PowerShell -ErrorAction SilentlyContinue
   
